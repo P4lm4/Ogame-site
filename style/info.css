@@ -1,0 +1,210 @@
+.info-center {
+    width: 1260px;
+    height: 780px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.info-box {
+    /*background-color: lightpink;*/
+    background-color: #00000080;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    flex: 60%;
+    width: 1260px;
+    height: 400px;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin-bottom: 15px;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(194, 158, 0);
+}
+
+.planet-pictures {
+    /*background-color: lightpink;*/
+    flex: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.planet-info {
+    /*background-color: lightblue;*/
+    flex: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.planet-info-top {
+    background:linear-gradient(180deg, rgba(134, 134, 134, 0.137) 0%, rgba(253, 218, 142, 0.137) 100% );
+    border-radius: 20px;
+    flex: 20%;
+    font-size: 40px;
+    margin-top: 30px;
+    padding: 10px;
+
+}
+
+.planet-info-bottom {
+    background:linear-gradient(180deg, rgba(134, 134, 134, 0.137) 0%, rgba(253, 218, 142, 0.137) 100% );
+    border-radius: 20px;
+    display: flex;
+    width: 900px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    flex: 80%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.construction-box {
+    /*background-color: lightblue;*/
+    display: flex;
+    flex: 40%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.construction-building-box {
+    /*background-color: rgb(68, 0, 255);*/
+    background-color: #000000c9;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    flex: 1;
+    height: 315px;
+    margin-right: 7.5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(194, 158, 0);
+}
+
+.consturction-building-left {
+    background:linear-gradient(180deg, rgba(134, 134, 134, 0.137) 0%, rgba(253, 218, 142, 0.137) 100% );
+    width: 618px;
+    display: flex;
+    flex: 1;
+}
+
+.consturction-building-picture {
+    margin-top: 10px;
+    margin-left:10px;
+    margin-bottom: 10px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.consturction-building-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 150px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.consturction-building-right {
+    flex: 1;
+    width: 618px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.consturction-building-right-pictures {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    margin:10px
+}
+
+.consturction-building-right-pictures img {
+    border-radius: 10px;
+    height: 70px;
+    margin: 5px;
+}
+
+.construction-ship-box {
+    /*background-color: yellow;*/
+    background-color: #000000c9;
+    color: white;
+    display: flex;
+    border-radius: 20px;
+    flex: 1;
+    height: 315px;
+    margin-left: 7.5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(194, 158, 0);
+
+}
+
+.consturction-ship-left {
+    background:linear-gradient(180deg, rgba(134, 134, 134, 0.137) 0%, rgba(253, 218, 142, 0.137) 100% );
+    width: 618px;
+    display: flex;
+    flex: 1;
+}
+
+.consturction-ship-picture {
+    margin-top: 10px;
+    margin-left:10px;
+    margin-bottom: 10px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.consturction-ship-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 150px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.consturction-ship-right {
+    flex: 1;
+    width: 618px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.consturction-ship-right-pictures {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    margin:10px
+}
+
+.consturction-ship-right-pictures img {
+    border-radius: 10px;
+    height: 70px;
+    margin: 5px;
+}
+

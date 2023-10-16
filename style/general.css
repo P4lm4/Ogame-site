@@ -1,0 +1,20 @@
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+body {
+    font-family: Roboto, Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 110px;
+    background-image: url("../channel-pictures/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+button {
+    font-family: Roboto, Arial;
+}
