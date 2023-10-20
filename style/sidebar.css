@@ -55,6 +55,7 @@
     width: 150px;
     display: flex;
     flex-direction: column;
+    overflow: scroll;
     padding-top: 6px;
     padding-left: 6px;
     padding-right: 6px;
