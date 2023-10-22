@@ -1,10 +1,11 @@
 .info-center {
+    background-color: lightpink;
     width: 1260px;
     /*height: 780px;*/
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    
 
 }
 
@@ -15,11 +16,7 @@
     color: white;
     display: flex;
     width: 100%;
-    height: 300px;
-    top: 0;
-    right: 0;
-    left: 0;
-    margin-bottom: 15px;
+    height: 100%;
 
     border-width: 2px;
     border-style: solid;
@@ -48,7 +45,7 @@
     border-radius: 20px;
     flex: 20%;
     font-size: 40px;
-    margin-top: 30px;
+    margin-top: 15px;
     padding: 10px;
 
 }
@@ -57,10 +54,10 @@
     background:linear-gradient(180deg, rgba(134, 134, 134, 0.137) 0%, rgba(253, 218, 142, 0.137) 100% );
     border-radius: 20px;
     display: flex;
-    width: 900px;
-    margin-top: 100px;
+    width: 100%;
+    margin-top: 10px;
     margin-bottom: 10px;
-    margin-right: 10px;
+    margin-right: 20px;
     flex: 80%;
     justify-content: center;
     align-items: center;
@@ -68,10 +65,10 @@
 }
 
 .construction-box {
-    /*background-color: lightblue;*/
+    background-color: lightblue;
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
     flex-direction: row;
 }
 
@@ -82,8 +79,6 @@
     color: white;
     display: flex;
     flex: 1;
-    height: 315px;
-    margin-right: 7.5px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -95,8 +90,11 @@
 
 .consturction-building-left {
     background:linear-gradient(180deg, rgba(134, 134, 134, 0.137) 0%, rgba(253, 218, 142, 0.137) 100% );
-    width: 618px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     flex: 1;
 }
 
@@ -112,15 +110,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 150px;
     text-align: center;
     line-height: 30px;
 }
 
 .consturction-building-right {
     flex: 1;
-    width: 618px;
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     flex-direction: row;
@@ -147,7 +145,6 @@
     display: flex;
     border-radius: 20px;
     flex: 1;
-    margin-left: 7.5px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -160,7 +157,9 @@
 
 .consturction-ship-left {
     background:linear-gradient(180deg, rgba(134, 134, 134, 0.137) 0%, rgba(253, 218, 142, 0.137) 100% );
-    width: 618px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
     display: flex;
     flex: 1;
 }
