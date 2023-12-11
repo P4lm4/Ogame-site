@@ -11,6 +11,9 @@
         <link rel="stylesheet" href="style/headers.css">
         <link rel="stylesheet" href="style/sidebar.css">
         <link rel="stylesheet" href="style/info.css">
+        <link rel="stylesheet" href="style/iframe.css">
+        <link rel="stylesheet" href="style/info.css">
+        <link rel="stylesheet" href="style/info-other-main.css">
 
     </head>
     <body>
@@ -19,22 +22,22 @@
             <div class="middle-section">
                 <div class="header-resource-icon">
                     <img class="iron-icon" src="headers-pictures/iron-spin.gif">
-                    <div>1.000.000</div>
+                    <div id="iron">-</div>
                 </div>
                 <div class="header-resource-icon">
                     <img class="crystal-icon" src="headers-pictures/crystalG.gif">
-                    <div>1.000.000</div>
+                    <div id="crystal">-</div>
                 </div>
                 <div class="header-resource-icon">
                     <img class="energy-icon" src="headers-pictures/energy-spin.gif">
-                    <div>1.000.000</div>
+                    <div id="energy">-</div>
                 </div>
             </div>
             <div class="right-section">
                 <div class="header-avatar-image">
                     <div class="header-avatar-image-signout">
-                        <div>P4lm4</div>
-                        <div>Sign out</div>
+                        <a id="username" href="#" style="color: white; text-decoration: none;">-</a>
+                        <a href="#" onclick="signOut()" style="color: white; text-decoration: none;">Sign out</a>
                     </div>
                     <img class="avatar-image" src="avatar-pictures/Avatar-pictures.png">
                 </div>
@@ -42,156 +45,136 @@
         </div>
 
         <div class="sidebar-left">
-            <button class="sidebar-button" onclick="window.location.href='http://127.0.0.1:5500/ogame.html'">Overview</button>
-            <button class="sidebar-button" onclick="window.location.href='http://127.0.0.1:5500/resource.html'">Resource</button>
-            <button class="sidebar-button" onclick="window.location.href='http://127.0.0.1:5500/facilities.html'">Facilities</button>
-            <button class="sidebar-button" onclick="window.location.href='http://127.0.0.1:5500/shipyard.html'">Shipyard</button>
-            <button class="sidebar-button" onclick="window.location.href='http://127.0.0.1:5500/fleet.html'">Fleet</button>
+            <button id="b1" class="sidebar-button" onclick="changeTab('overview')">Overview</button>
+            <button id="b2" class="sidebar-button" onclick="changeTab('resource')">Resource</button>
+            <button id="b3" class="sidebar-button" onclick="changeTab('shipyard')">Shipyard</button>
+            <button id="b4" class="sidebar-button" onclick="changeTab('fleet')">Fleet</button>
         </div>
 
-        <div class="sidebar-right">
-            <button class="sidebar-link">
+        <div id="ownedPlanet" class="sidebar-right">
+            <!--<button id="planetBtn" class="sidebar-link">
                 <img class="planet-icon" src="headers-pictures/Planeta1.png">
-                <div>Planet 1</div>
-                <div>Coordination</div>
-            </button>
-            <button class="sidebar-link">
-                <img class="planet-icon" src="headers-pictures/Planet2.png">
-                <div>Planeta 2</div>
-                <div>Coordination</div>
-            </button>
-            <button class="sidebar-link">
-                <img class="planet-icon" src="headers-pictures/Planet3.png">
-                <div>Planeta 3</div>
-                <div>Coordination</div>
-            </button>
-            <button class="sidebar-link">
-                <img class="planet-icon" src="headers-pictures/Planet4.png">
-                <div>Planeta 4</div>
-                <div>Coordination</div>
-            </dbutton>
-            <button class="sidebar-link">
-                <img class="planet-icon" src="headers-pictures/Planet5.png">
-                <div>Planeta 5</div>
-                <div>Coordination</div>
-            </button>
-            <button class="sidebar-link">
-                <img class="planet-icon" src="headers-pictures/Planet6.png">
-                <div>Planeta 6</div>
-                <div>Coordination</div>
-            </button>
-
-            <button class="sidebar-link">
-                <img class="planet-icon" src="headers-pictures/Planeta1.png">
-                <div>Planet 1</div>
-                <div>Coordination</div>
-            </button>
-            <button class="sidebar-link">
-                <img class="planet-icon" src="headers-pictures/Planet2.png">
-                <div>Planeta 2</div>
-                <div>Coordination</div>
-            </button>
-            <button class="sidebar-link">
-                <img class="planet-icon" src="headers-pictures/Planet3.png">
-                <div>Planeta 3</div>
-                <div>Coordination</div>
-            </button>
-            <button class="sidebar-link">
-                <img class="planet-icon" src="headers-pictures/Planet4.png">
-                <div>Planeta 4</div>
-                <div>Coordination</div>
-            </dbutton>
-            <button class="sidebar-link">
-                <img class="planet-icon" src="headers-pictures/Planet5.png">
-                <div>Planeta 5</div>
-                <div>Coordination</div>
-            </button>
-            <button class="sidebar-link">
-                <img class="planet-icon" src="headers-pictures/Planet6.png">
-                <div>Planeta 6</div>
-                <div>Coordination</div>
-            </button>
+                <div id="nameOfPlanet">-</div>
+                <div id="coordinationOfPlanet">-</div>
+            </button> -->
+        </div>
+        
+        <div id="tabContainer" class="iframe-container">
+            
         </div>
 
-        <div class="info-center">
-            <div class="info-box">
-                <div class="planet-pictures">
-                    <img src="headers-pictures/Planet2.png">
-                </div>
-                <div class="planet-info">
-                    <div class="planet-info-top">
-                        Overview - Planet 2
-                    </div>
-                    <div class="planet-info-bottom">
-                        <p>Coordinates: [96:70]</p>
-                        <p>Temperature: 100C</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="construction-box">
-                <div class="construction-building-box">
-                    <div class="consturction-building-left">
-                        <img class="consturction-building-picture" src="channel-pictures/Iron-mine.png">
-                        <div class="consturction-building-info">
-                            <p>IRON MINE</p>
-                            <p>Improved to Level 20</p>
-                            <p>Duration: 10h 30min 27s</p> 
-                        </div>
-                    </div>
-                    <div class="consturction-building-right">
-                        <div class="consturction-building-right-pictures">
-                            <div>Crystal Mine</div>
-                            <img src="channel-pictures/Iron-mine.png">
-                            <div>18</div>
-                        </div>
-                        <div class="consturction-building-right-pictures">
-                            <div>Solar Plant</div>
-                            <img src="channel-pictures/Iron-mine.png">
-                            <div>20</div>
-                        </div>
-                    </div>
-                </div>
+    </body>
+    <script>
 
-                <div class="construction-ship-box">
-                        <div class="consturction-ship-left">
-                            <img class="consturction-ship-picture" src="channel-pictures/ship1.png">
-                            <div class="consturction-ship-info">
-                                <p>Fighter</p>
-                                <p>The rest for construction: 330</p>
-                                <p>Building duration: 1m</p>
-                                <p>Total time: 5h 30min</p> 
-                            </div>
-                        </div>
-                        <div class="consturction-ship-right">
-                            <div class="consturction-ship-right-pictures">
-                                <div>Scout</div>
-                                <img src="channel-pictures/ship1.png">
-                                <div>100</div>
-                            </div>
-                            <div class="consturction-ship-right-pictures">
-                                <div>Destroyer</div>
-                                <img src="channel-pictures/ship2.png">
-                                <div>55</div>
-                            </div>
-                            <div class="consturction-ship-right-pictures">
-                                <div>Fighter</div>
-                                <img src="channel-pictures/ship3.png">
-                                <div>500</div>
-                            </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div>
+        var tabContainer = document.getElementById("tabContainer");
 
-        <script>
+        async function changeTab(tabName) {
+            const response = await fetch("http://127.0.0.1:5500/" + tabName + ".html");
 
-            function stabSelection() {
+            var data = await response.text();
+            tabContainer.innerHTML = data;
+        }
 
+        changeTab("overview");
 
+        var usernameLabel = document.getElementById("username");
+        usernameLabel.innerHTML = localStorage.getItem("OG.username");
+        
+
+        async function reloadResource()
+        {
+            var iron = document.getElementById("iron");
+            var crystal = document.getElementById("crystal");
+            var energy = document.getElementById("energy");
+            
+
+            const response = await fetch(`http://127.0.0.1:8080/resource?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.planets")[0]}`);
+            var data = await response.json();
+
+            if(data.success)
+            {
+                iron.innerHTML = data.iron;
+                crystal.innerHTML = data.crystal;
+                energy.innerHTML = data.energyConsumption + " / " + data.energyProduction;
+            }
+            else
+            {
+                alert("Neuspijesno ucitani resursi! ");
+            }
+        }
+
+        async function listOfOwnedPlanets()
+        {
+
+            var planetContainer = document.getElementById("ownedPlanet");
+
+            const respons = await fetch(`http://127.0.0.1:8080/planets?token=${localStorage.getItem("OG.token")}`);
+            var data = await respons.json();
+
+            if(data.success)
+            {
+
+                planetContainer.innerHTML = "";
+
+                for(var i = 0; i < data.ownedPlanets.length; i++)
+                {
+
+                    var planetButton = document.createElement("button");
+                    planetButton.id = "planetBtn";
+                    planetButton.className = "sidebar-link";
+
+                    planetContainer.appendChild(planetButton);
+
+                    var planetImg = document.createElement("img");
+                    planetImg.className = "planet-icon";
+                    planetImg.src = "headers-pictures/Planet" + ((data.ownedPlanets[i].id % 6) + 1) + ".png";
+
+                    planetButton.appendChild(planetImg);
+
+                    var planetName = document.createElement("div");
+                    planetName.id = "nameOfPlanet";
+                    planetName.innerHTML = data.ownedPlanets[i].name;
+
+                    planetButton.appendChild(planetName);
+
+                    var planetCoordinates = document.createElement("div");
+                    planetCoordinates.id = "coordinationOfPlanet";
+                    planetCoordinates.innerHTML = data.ownedPlanets[i].positionX + " / " + data.ownedPlanets[i].positionY;
+
+                    planetButton.appendChild(planetCoordinates);
+
+                }
+                
             }
 
-        </script>
-    </body>
+        }
+
+        async function signOut()
+        {
+
+            const respons = await fetch(`http://127.0.0.1:8080/signOut?token=${localStorage.getItem("OG.token")}`);
+            var data = await respons.json();
+
+            if(data.success)
+            {
+                localStorage.clear();
+                alert("Uspijesno ste izlogovani! ");
+                location.href = "http://127.0.0.1:5500/login.html";
+            }
+            else
+            {
+                alert("Niste se uspijeli izlogovati! ")
+            }
+
+        }
+
+        reloadResource();
+
+        listOfOwnedPlanets();
+
+
+
+
+    </script>
 </html>

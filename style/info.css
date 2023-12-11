@@ -1,10 +1,10 @@
 .info-center {
-    background-color: lightpink;
+    /*background-color: lightpink;*/
     width: 1260px;
     /*height: 780px;*/
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    row-gap: 20px;
     
 
 }
@@ -15,8 +15,6 @@
     border-radius: 20px;
     color: white;
     display: flex;
-    width: 100%;
-    height: 100%;
 
     border-width: 2px;
     border-style: solid;
@@ -29,6 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 .planet-info {
@@ -36,7 +35,6 @@
     flex: 70%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -53,23 +51,22 @@
 .planet-info-bottom {
     background:linear-gradient(180deg, rgba(134, 134, 134, 0.137) 0%, rgba(253, 218, 142, 0.137) 100% );
     border-radius: 20px;
-    display: flex;
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-right: 20px;
+    margin-right: 10px;
     flex: 80%;
-    justify-content: center;
-    align-items: center;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .construction-box {
-    background-color: lightblue;
-    width: 100%;
-    height: 100%;
+    /*background-color: lightblue;*/
     display: flex;
-    flex-direction: row;
+    align-items: baseline;
 }
 
 .construction-building-box {
@@ -78,10 +75,10 @@
     border-radius: 20px;
     color: white;
     display: flex;
-    flex: 1;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex: 1;
+    margin-right: 10px;
+ 
 
     border-width: 2px;
     border-style: solid;
@@ -92,30 +89,25 @@
     background:linear-gradient(180deg, rgba(134, 134, 134, 0.137) 0%, rgba(253, 218, 142, 0.137) 100% );
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-    flex: 1;
+    align-items: center;
+    justify-content: space-around;
+    
 }
 
 .consturction-building-picture {
-    margin-top: 10px;
-    margin-left:10px;
-    margin-bottom: 10px;
-    height: 150px;
-    border-radius: 10px;
+    height: 170px;
+    border-radius: 20px;
+    padding: 10px;
 }
 
 .consturction-building-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
     line-height: 30px;
+    padding: 10px;
 }
 
 .consturction-building-right {
-    flex: 1;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -144,10 +136,9 @@
     color: white;
     display: flex;
     border-radius: 20px;
-    flex: 1;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex: 1;
+    margin-left: 10px;
 
     border-width: 2px;
     border-style: solid;
@@ -159,31 +150,24 @@
     background:linear-gradient(180deg, rgba(134, 134, 134, 0.137) 0%, rgba(253, 218, 142, 0.137) 100% );
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    width: 100%;
     display: flex;
-    flex: 1;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .consturction-ship-picture {
-    margin-top: 10px;
-    margin-left:10px;
-    margin-bottom: 10px;
-    height: 150px;
-    border-radius: 10px;
+    height: 170px;
+    border-radius: 20px;
+    padding: 10px;
 }
 
 .consturction-ship-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 150px;
     text-align: center;
     line-height: 30px;
+    padding: 10px;
 }
 
 .consturction-ship-right {
-    flex: 1;
-    width: 618px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
