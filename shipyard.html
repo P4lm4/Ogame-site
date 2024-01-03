@@ -1,7 +1,7 @@
 
 <div class="info-center-other">
     <div class="info-center-picture">
-        <img src="channel-pictures/resource-building.jpg">
+        <img src="channel-pictures/Shipyard.png">
         <div class="center-top">Shipyard - Planet 2</div>
         <div class="center-top"></div>
     </div>
@@ -16,23 +16,26 @@
             <div class="box-main-building">
                 <div class="box-main-building-pictures">
                     <div class="box-main-building-name">Scout</div>
-                    <img src="channel-pictures/ship2.png">
+                    <img src="channel-pictures/scout.png">
                     <div class="box-main-building-upgrade">
-                        <input class="input-number-construction-ship" type="number" min="0">
+                        <input id="scout-input" class="input-number-construction-ship" type="number" min="0">
+                        <button id="scoutButton" class="button-building-upgrade" onclick="buildShip('scout')">Build</button>
                     </div>
                 </div>
                 <div class="box-main-building-pictures">
                     <div class="box-main-building-name">Fighter</div>
-                    <img src="channel-pictures/ship1.png">
+                    <img src="channel-pictures/fighter.png">
                     <div class="box-main-building-upgrade">
-                        <input class="input-number-construction-ship" type="number" min="0">
+                        <input id="fighter-input" class="input-number-construction-ship" type="number" min="0">
+                        <button id="fighterButton" class="button-building-upgrade" onclick="buildShip('fighter')">Build</button>
                     </div>
                 </div>
                 <div class="box-main-building-pictures">
-                    <div class="box-main-building-name">Destroyer</div>
-                    <img src="channel-pictures/ship3.png">
+                    <div class="box-main-building-name">Bomber</div>
+                    <img src="channel-pictures/bomber.png">
                     <div class="box-main-building-upgrade">
-                        <input class="input-number-construction-ship" type="number" min="0">
+                        <input id="bomber-input" class="input-number-construction-ship" type="number" min="0">
+                        <button id="bomberButton" class="button-building-upgrade" onclick="buildShip('bomber')">Build</button>
                     </div>
                 </div>
             </div>
@@ -41,17 +44,17 @@
         <div class="box-main-building-info">
                 <div class="box-main-building-top">
                     <div class="box-main-building-top-construction">
-                        <p>Scout</p>
+                        <div id="nameConShip">-</div>
                     </div>
                 </div>
                 <div class="consturction-building-bottom">
                     <div class="consturction-building-bottom-pictures">
-                        <img src="channel-pictures/ship2.png">
+                        <img id="pictureConShip" src="">
                     </div>
                     <div class="consturction-building-bottom-info">
-                        <div>300</div>
-                        <div>Buidling duration: 1m</div>
-                        <div>Total time: 300m</div>
+                        <div id="countConShip">-</div>
+                        <div id="timeConShip">-</div>
+                        <div id="fullTimeConShip">-</div>
                     </div>
                 </div>
         </div>

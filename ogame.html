@@ -69,14 +69,146 @@
 
         var tabContainer = document.getElementById("tabContainer");
 
-        async function changeTab(tabName) {
-            const response = await fetch("http://127.0.0.1:5500/" + tabName + ".html");
 
+
+
+
+
+        async function changeTab(tabName) 
+        {
+            const response = await fetch("http://127.0.0.1:5500/" + tabName + ".html");
             var data = await response.text();
+
             tabContainer.innerHTML = data;
+
+            reloadResource();
+            infoConShip();
+            infoUpgradeBuilding();
+
         }
 
         changeTab("overview");
+
+
+
+        async function upgradeBuilding(idBuilding)
+        {
+
+            const response = await fetch(`http://127.0.0.1:8080/updateBuilding?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}&idBuilding=${idBuilding}`);
+            var data = await response.json();
+
+            if(data.success)
+            {
+                alert("Zgrada uspijesno unapredjena! ");
+            }
+            else
+            {
+                alert("Zgrada nije unapredjena! ");
+            }
+
+            reloadResource();
+            infoUpgradeBuilding();
+            infoConShip();
+            
+        }
+        
+        async function infoUpgradeBuilding()
+        {
+            var pictureBuilding = document.getElementById("pictureUpBuilding");
+            var nameBuilding = document.getElementById("nameUpBuilding");
+            var lvlBuilding = document.getElementById("lvlUpBuilding");
+            var timeLeftBuilding = document.getElementById("timeLeftUpBuilding");
+
+            const response = await fetch(`http://127.0.0.1:8080/updateBuildingInfo?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}`);
+            var data = await response.json();
+
+            if(data.success && data.isConstructingBuilding)
+            {
+                pictureBuilding.src = "channel-pictures/" + data.id + ".png";
+                nameBuilding.innerText = data.name;
+
+                if(data.buildingLvl < 0)
+                {
+                    lvlBuilding.innerText = "Constructing level " + (data.buildingLvl + 2);
+                }
+                else
+                {
+                    lvlBuilding.innerText = "Upgrading level " + (data.buildingLvl + 1) + " to Level " + (data.buildingLvl + 2);
+                }
+
+                timeLeftBuilding.innerText = "Time left: " +  new Date(data.conTime * 1000).toISOString().slice(11, 19);
+            }
+            else
+            {
+                pictureBuilding.src = "";
+                nameBuilding.innerText = "-";
+                lvlBuilding.innerText = "-";
+                timeLeftBuilding.innerText = "-";
+            }
+
+        }
+
+
+
+
+        async function buildShip(idShip)
+        {
+            var inputField = document.getElementById(idShip + "-input");
+
+
+            var count = inputField.value;
+
+
+            const response = await fetch(`http://127.0.0.1:8080/buildShip?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}&idShip=${idShip}&count=${count}`);
+            var data = await response.json();
+
+            if(data.success)
+            {
+                alert("Brodovi pocinju da se prave! ")
+            }
+            else
+            {
+                alert("Doslo je do greske! " + data.status)
+                
+            }
+
+            infoConShip();
+            reloadResource();
+            infoUpgradeBuilding();
+
+        }
+
+        async function infoConShip()
+        {
+            var nameShip = document.getElementById("nameConShip");
+            var countConShip = document.getElementById("countConShip");
+            var timeConShip = document.getElementById("timeConShip");
+            var fullTimeConShip = document.getElementById("fullTimeConShip");
+            var pictureShip = document.getElementById("pictureConShip");
+
+            const respons = await fetch(`http://127.0.0.1:8080/buildShipInfo?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}`)
+            var data = await respons.json();
+
+            if(data.success && data.isConstructionShip)
+            {
+                pictureShip.src = "channel-pictures/" + data.id + ".png"
+                nameShip.innerText = data.name;
+                countConShip.innerText = data.countShips;
+                timeConShip.innerText = "Time left: " +  new Date(data.conTime * 1000).toISOString().slice(11, 19);
+                fullTimeConShip.innerText = "Time left: " +  new Date(data.fullConTime * 1000).toISOString().slice(11, 19);
+            }
+            else
+            {
+                pictureShip.src = "";
+                nameShip.innerText = "-";
+                countConShip.innerText = "-";
+                timeConShip.innerText = "-";
+                fullTimeConShip.innerText = "-";
+            }
+
+        }
+        
+
 
         var usernameLabel = document.getElementById("username");
         usernameLabel.innerHTML = localStorage.getItem("OG.username");
@@ -89,7 +221,7 @@
             var energy = document.getElementById("energy");
             
 
-            const response = await fetch(`http://127.0.0.1:8080/resource?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.planets")[0]}`);
+            const response = await fetch(`http://127.0.0.1:8080/resource?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}`);
             var data = await response.json();
 
             if(data.success)
@@ -119,9 +251,9 @@
 
                 for(var i = 0; i < data.ownedPlanets.length; i++)
                 {
-
                     var planetButton = document.createElement("button");
-                    planetButton.id = "planetBtn";
+                    planetButton.id = i;
+                    planetButton.onclick = function() { changePlanet(this.id); };
                     planetButton.className = "sidebar-link";
 
                     planetContainer.appendChild(planetButton);
@@ -143,10 +275,20 @@
                     planetCoordinates.innerHTML = data.ownedPlanets[i].positionX + " / " + data.ownedPlanets[i].positionY;
 
                     planetButton.appendChild(planetCoordinates);
-
                 }
                 
             }
+        }
+
+        async function changePlanet(i)
+        {
+            var planets = JSON.parse(localStorage.getItem("OG.planets"));
+
+            localStorage.setItem("OG.selectedPlanet", planets[i]);
+
+            infoConShip();
+            reloadResource();
+            infoUpgradeBuilding();
 
         }
 
@@ -164,7 +306,7 @@
             }
             else
             {
-                alert("Niste se uspijeli izlogovati! ")
+                alert("Niste se uspijeli izlogovati! ");
             }
 
         }
@@ -172,9 +314,6 @@
         reloadResource();
 
         listOfOwnedPlanets();
-
-
-
 
     </script>
 </html>

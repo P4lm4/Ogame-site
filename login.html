@@ -68,7 +68,8 @@
 
           localStorage.setItem("OG.username", data.username);
           localStorage.setItem("OG.token", data.token);
-          localStorage.setItem("OG.planets", data.ownedPlanets);
+          localStorage.setItem("OG.planets", JSON.stringify(data.ownedPlanets));
+          localStorage.setItem("OG.selectedPlanet", data.ownedPlanets[0]);
 
           location.href = 'http://127.0.0.1:5500/ogame.html';
         }

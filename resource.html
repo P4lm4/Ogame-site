@@ -15,26 +15,26 @@
                     <div class="box-main-building">
                         <div class="box-main-building-pictures">
                             <div class="box-main-building-name">Iron Mine</div>
-                            <img src="channel-pictures/Iron-mine.png">
+                            <img src="channel-pictures/mine_iron.png">
                             <div class="box-main-building-upgrade">
                                 <div>LVL 18</div>
-                                <button class="button-building-upgrade">Upgrade</button>
+                                <button id="mine_iron" class="button-building-upgrade" onclick="upgradeBuilding('mine_iron')">Upgrade</button>
                             </div>
                         </div>
                         <div class="box-main-building-pictures">
                             <div class="box-main-building-name">Crystal Mine</div>
-                            <img src="channel-pictures/Iron-mine.png">
+                            <img src="channel-pictures/mine_crystal.png">
                             <div class="box-main-building-upgrade">
                                 <div>LVL 18</div>
-                                <button class="button-building-upgrade">Upgrade</button>
+                                <button id="mine_crystal" class="button-building-upgrade" onclick="upgradeBuilding('mine_crystal')">Upgrade</button>
                             </div>
                         </div>
                         <div class="box-main-building-pictures">
                             <div class="box-main-building-name">Solar Plant</div>
-                            <img src="channel-pictures/Iron-mine.png">
+                            <img src="channel-pictures/powerplant_energy.png">
                             <div class="box-main-building-upgrade">
                                 <div>LVL 18</div>
-                                <button class="button-building-upgrade">Upgrade</button>
+                                <button id="powerplant_energy" class="button-building-upgrade" onclick="upgradeBuilding('powerplant_energy')">Upgrade</button>
                             </div>
                         </div>
                     </div>
@@ -43,16 +43,16 @@
                 <div class="box-main-building-info">
                         <div class="box-main-building-top">
                             <div class="box-main-building-top-construction">
-                                <p>Crystal Mine</p>
+                                <div id="nameUpBuilding">-</div>
                             </div>
                         </div>
                         <div class="consturction-building-bottom">
                             <div class="consturction-building-bottom-pictures">
-                                <img src="channel-pictures/Iron-mine.png">
+                                <img id="pictureUpBuilding" src="">
                             </div>
                             <div class="consturction-building-bottom-info">
-                                <div>Lvl 18 to Lvl 19</div>
-                                <div>Time left: 1h 25min</div>
+                                <div id="lvlUpBuilding">-</div>
+                                <div id="timeLeftUpBuilding">-</div>
                             </div>
                         </div>
                 </div>
