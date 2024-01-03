@@ -76,7 +76,7 @@
 
         async function changeTab(tabName) 
         {
-            const response = await fetch("http://127.0.0.1:5500/" + tabName + ".html");
+            const response = await fetch(`http://${window.location.hostname}:5500/${tabName}.html`);
             var data = await response.text();
 
             tabContainer.innerHTML = data;
@@ -89,13 +89,42 @@
 
         changeTab("overview");
 
-
-
-        async function upgradeBuilding(idBuilding)
+        async function request(endPoint, args)
         {
+            var url = `http://${window.location.hostname}:8080/${endPoint}?token=${localStorage.getItem("OG.token")}`;
+            for (var key in args)
+            {
+                if(args.hasOwnProperty(key))
+                {
+                    url += `&${key}=${encodeURIComponent(args[key])}`;
+                }
+            }
 
-            const response = await fetch(`http://127.0.0.1:8080/updateBuilding?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}&idBuilding=${idBuilding}`);
-            var data = await response.json();
+            const response = await fetch(url);
+
+            if(response.ok)
+            {
+                var data = await response.json();
+                return data;
+            }
+            else
+            {
+                return{success:false};
+            }
+
+           
+        }
+
+        async function upgradeBuilding(upgradeId)
+        {
+            /*const response = await fetch(`http://127.0.0.1:8080/updateBuilding?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}&idBuilding=${idBuilding}`);
+            var data = await response.json();*/
+
+            var data = await request("updateBuilding", {
+                idPlanet: localStorage.getItem("OG.selectedPlanet"), 
+                idBuilding: upgradeId
+            });
+
 
             if(data.success)
             {
@@ -119,8 +148,10 @@
             var lvlBuilding = document.getElementById("lvlUpBuilding");
             var timeLeftBuilding = document.getElementById("timeLeftUpBuilding");
 
-            const response = await fetch(`http://127.0.0.1:8080/updateBuildingInfo?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}`);
-            var data = await response.json();
+            /*const response = await fetch(`http://127.0.0.1:8080/updateBuildingInfo?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}`);
+            var data = await response.json();*/
+
+            var data = await request("updateBuildingInfo", {idPlanet: localStorage.getItem("OG.selectedPlanet")});
 
             if(data.success && data.isConstructingBuilding)
             {
@@ -151,16 +182,18 @@
 
 
 
-        async function buildShip(idShip)
+        async function buildShip(buildShipId)
         {
-            var inputField = document.getElementById(idShip + "-input");
+            var inputField = document.getElementById(buildShipId + "-input");
 
 
-            var count = inputField.value;
+            var shipCount = inputField.value;
 
 
-            const response = await fetch(`http://127.0.0.1:8080/buildShip?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}&idShip=${idShip}&count=${count}`);
-            var data = await response.json();
+            /*const response = await fetch(`http://127.0.0.1:8080/buildShip?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}&idShip=${idShip}&count=${count}`);
+            var data = await response.json();*/
+
+            var data = await request("buildShip", {idPlanet:localStorage.getItem("OG.selectedPlanet"), idShip:buildShipId, count:shipCount});
 
             if(data.success)
             {
@@ -186,8 +219,10 @@
             var fullTimeConShip = document.getElementById("fullTimeConShip");
             var pictureShip = document.getElementById("pictureConShip");
 
-            const respons = await fetch(`http://127.0.0.1:8080/buildShipInfo?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}`)
-            var data = await respons.json();
+            /*const respons = await fetch(`http://127.0.0.1:8080/buildShipInfo?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}`)
+            var data = await respons.json();*/
+
+            var data = await request("buildShipInfo", {idPlanet:localStorage.getItem("OG.selectedPlanet")});
 
             if(data.success && data.isConstructionShip)
             {
@@ -221,8 +256,10 @@
             var energy = document.getElementById("energy");
             
 
-            const response = await fetch(`http://127.0.0.1:8080/resource?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}`);
-            var data = await response.json();
+            /*const response = await fetch(`http://127.0.0.1:8080/resource?token=${localStorage.getItem("OG.token")}&idPlanet=${localStorage.getItem("OG.selectedPlanet")}`);
+            var data = await response.json();*/
+
+            var data = await request("resource", {idPlanet:localStorage.getItem("OG.selectedPlanet")});
 
             if(data.success)
             {
@@ -241,8 +278,10 @@
 
             var planetContainer = document.getElementById("ownedPlanet");
 
-            const respons = await fetch(`http://127.0.0.1:8080/planets?token=${localStorage.getItem("OG.token")}`);
-            var data = await respons.json();
+            /*const respons = await fetch(`http://127.0.0.1:8080/planets?token=${localStorage.getItem("OG.token")}`);
+            var data = await respons.json();*/
+
+            var data = await request("planets", {});
 
             if(data.success)
             {
@@ -295,14 +334,16 @@
         async function signOut()
         {
 
-            const respons = await fetch(`http://127.0.0.1:8080/signOut?token=${localStorage.getItem("OG.token")}`);
-            var data = await respons.json();
+            /*const respons = await fetch(`http://127.0.0.1:8080/signOut?token=${localStorage.getItem("OG.token")}`);
+            var data = await respons.json();*/
+
+            var data = await request("signOut", {});
 
             if(data.success)
             {
                 localStorage.clear();
                 alert("Uspijesno ste izlogovani! ");
-                location.href = "http://127.0.0.1:5500/login.html";
+                location.href = `http://${window.location.hostname}:5500/login.html`;
             }
             else
             {

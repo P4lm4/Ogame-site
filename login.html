@@ -59,7 +59,7 @@
         var username = userNameField.value;
         var password = passwordField.value;
 
-        const response = await fetch(`http://127.0.0.1:8080/login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
+        const response = await fetch(`http://${window.location.hostname}:8080/login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
         var data = await response.json();
 
         if(data.success)
@@ -71,7 +71,7 @@
           localStorage.setItem("OG.planets", JSON.stringify(data.ownedPlanets));
           localStorage.setItem("OG.selectedPlanet", data.ownedPlanets[0]);
 
-          location.href = 'http://127.0.0.1:5500/ogame.html';
+          location.href = `http://${window.location.hostname}:5500/ogame.html`;
         }
         else
         {
