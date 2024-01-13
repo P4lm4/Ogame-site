@@ -11,78 +11,90 @@
         <link rel="stylesheet" href="style/headers.css">
         <link rel="stylesheet" href="style/sidebar.css">
         <link rel="stylesheet" href="style/info.css">
+        <link rel="stylesheet" href="style/fleet.css">
 
     </head>
     <body>
 
-        <div class="info-center">
-            <div class="info-box">
-                <div class="planet-pictures">
+        <div class="info-center-fleet">
+            <div class="info-box-fleet">
+                <div class="planet-pictures-fleet">
+                    <p>Start planet</p>
                     <img src="headers-pictures/Planet2.png">
-                </div>
-                <div class="planet-info">
-                    <div class="planet-info-top">
-                        Overview - Planet 2
-                    </div>
-                    <div class="planet-info-bottom">
-                        <p>Coordinates: [96:70]</p><p>Temperature: 100C</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="construction-box">
-                <div class="construction-building-box">
-                    <div class="consturction-building-left">
-                        <img class="consturction-building-picture" src="channel-pictures/Iron-mine.png">
-                        <div class="consturction-building-info">
-                            <p>IRON MINE</p>
-                            <p>Improved to Level 20</p>
-                            <p>Duration: 10h 30min 27s</p> 
-                        </div>
-                    </div>
-                    <div class="consturction-building-right">
-                        <div class="consturction-building-right-pictures">
-                            <div>Crystal Mine</div>
-                            <img src="channel-pictures/Iron-mine.png">
-                            <div>18</div>
-                        </div>
-                        <div class="consturction-building-right-pictures">
-                            <div>Solar Plant</div>
-                            <img src="channel-pictures/Iron-mine.png">
-                            <div>20</div>
-                        </div>
-                    </div>
+                    <p>Planet 1</p>
+                    <p>50/20</p>
                 </div>
 
-                <div class="construction-ship-box">
-                        <div class="consturction-ship-left">
-                            <img class="consturction-ship-picture" src="channel-pictures/ship1.png">
-                            <div class="consturction-ship-info">
-                                <p>Fighter</p>
-                                <p>The rest for construction: 330</p>
-                                <p>Building duration: 1m</p>
-                                <p>Total time: 5h 30min</p> 
+                <div class="fleet-info">
+                    <div class="fleet-info-shiResCon">
+                        <div class="fleet-info-ships">
+                            <div class="fleet-info-shipCon">
+                                <p class="fleet-info-ships-name">
+                                    Scout</p>
+                                <img src="channel-pictures/scout.png">
+                                <input class="input-number-shiResCon" type="number" min="0">
+                            </div>
+                            <div class="fleet-info-shipCon">
+                                <p class="fleet-info-ships-name">
+                                    Fighter</p>
+                                <img src="channel-pictures/fighter.png">
+                                <input class="input-number-shiResCon" type="number" min="0">
+                            </div>
+                            <div class="fleet-info-shipCon">
+                                <p class="fleet-info-ships-name">
+                                    Bomber</p>
+                                <img src="channel-pictures/bomber.png">
+                                <input class="input-number-shiResCon" type="number" min="0">
                             </div>
                         </div>
-                        <div class="consturction-ship-right">
-                            <div class="consturction-ship-right-pictures">
-                                <div>Scout</div>
-                                <img src="channel-pictures/ship1.png">
-                                <div>100</div>
+
+                        <div class="fleet-info-resource">
+                            <div class="fleet-info-resourceCon">
+                                <p class="fleet-info-resource-name">
+                                    Iron</p>
+                                <img src="headers-pictures/Iron.png">
+                                <input class="input-number-shiResCon" type="number" min="0">
                             </div>
-                            <div class="consturction-ship-right-pictures">
-                                <div>Destroyer</div>
-                                <img src="channel-pictures/ship2.png">
-                                <div>55</div>
+                            <div class="fleet-info-resourceCon">
+                                <p class="fleet-info-resource-name">
+                                    Crystal</p>
+                                <img src="headers-pictures/Crystal.png">
+                                <input class="input-number-shiResCon" type="number" min="0">
                             </div>
-                            <div class="consturction-ship-right-pictures">
-                                <div>Fighter</div>
-                                <img src="channel-pictures/ship3.png">
-                                <div>500</div>
+                            <div class="fleet-info-resourceCon">
+                                <p class="fleet-info-resource-name">
+                                    Energy</p>
+                                <img src="headers-pictures/Energy.png">
+                                <input class="input-number-shiResCon" type="number" min="0">
                             </div>
                         </div>
+                    </div>
+                    <button class="button-send-fleet">Send fleet</button>
+
+                    <div class="fleet-info-time">
+                        <div>
+                            <p>Start time</p>
+                            <p>15:50:00</p>
+                        </div>
+                        <div>
+                            <p>Left time</p>
+                            <p> 01:50:00</p>
+                        </div>
+                        <div>
+                            <p>End time</p>
+                            <p> 17:00:00</p>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
+
+                <div class="planet-pictures-fleet">
+                    <p>End planet</p>
+                    <img src="headers-pictures/Planet3.png">
+                    <p>Planet 2</p>
+                    <p>70/20</p>
+                </div>
+            </div>            
         </div>
     </body>
 </html>
